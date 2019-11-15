@@ -12,10 +12,10 @@ void	ft_putnbr(int n)
 	nb = n;
 	if (nb < 0)
 	{
-		nb *= -1;
 		ft_putchar('-');
+		nb *= -1;
 	}
 	if (nb >= 10)
-		ft_putnbr(n / 10);
+		ft_putnbr(nb / 10);
 	ft_putchar((nb % 10) + '0');
 }

@@ -11,12 +11,12 @@
 # **************************************************************************** #
 
 EXE_NAME = print_hello
-SRC_PATH = ~/42_the_final_backup/Other_Projects/exam_prep/the_basics/
+SRC_PATH = ./the_basics
 INCLUDES = $(SRC_PATH)
 SOURCES = \
 	$(EXE_NAME).c \
-	$(SRC_PATH)ft_putnbr.c \
-	$(SRC_PATH)ft_putstr.c
+	$(SRC_PATH)/ft_putnbr.c \
+	$(SRC_PATH)/ft_putstr.c
 O_FILES = \
 	$(EXE_NAME).o \
 	ft_putnbr.o \
@@ -40,6 +40,5 @@ clean:
 
 test: fclean all
 	./$(EXE_NAME)
-	@/bin/rm -f $(EXE_NAME)
-	@/bin/rm -f $(O_FILES)
-	make fclean
+	@make fclean
+	norminette
