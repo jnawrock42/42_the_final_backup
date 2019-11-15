@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-EXE_NAME = print_hello
+EXE_NAME = joe_main
 SRC_PATH = ./the_basics
 INCLUDES = $(SRC_PATH)
 SOURCES = \
