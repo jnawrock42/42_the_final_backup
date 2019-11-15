@@ -52,9 +52,10 @@ int		ft_atoi(char *str)
 	sign = 1;
 	while (*str && *str <= ' ')
 		++str;
-	if (*str == '-')
+	if (*str == '-' || *str == '+')
 	{
-		sign = -1;
+		if (*str == '-')
+			sign = -1;
 		++str;
 	}
 	while (*str && *str >= '0' && *str <= '9')
@@ -75,7 +76,7 @@ int		main(void)
 
 	test0 = " - + 9.ox";
 	test1 = "  s   -12386asdhf";
-	test2 = "91-8 - q9824";
+	test2 = "+91-8 - q9824";
 	test3 = "- 1233";
 	test4 = "	 \n+-123";
 
