@@ -6,7 +6,7 @@
 #    By: jnawrock <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/09 15:10:33 by jnawrock          #+#    #+#              #
-#    Updated: 2019/11/09 15:10:35 by jnawrock         ###   ########.fr        #
+#    Updated: 2019/11/14 17:59:15 by jnawrock         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ clean:
 	@/bin/rm -f $(O_FILES)
 
 test_pipe_in: fclean all
-	time perl ./tests/perl_test.pl 10 50 5 | ./$(EXE_NAME)
+	time perl ./tests/perl_test.pl 5000 5000 1000 | ./$(EXE_NAME)
 	@/bin/rm -f $(EXE_NAME)
 	@/bin/rm -f $(O_FILES)
 	#norminette

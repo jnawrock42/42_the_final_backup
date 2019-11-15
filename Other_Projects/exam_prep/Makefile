@@ -10,24 +10,36 @@
 #                                                                              #
 # **************************************************************************** #
 
-TEST_PATH = ./level0/
-TEST_Q = $(TEST_PATH)print_hello
-EXE_NAME = joetest
-SRC_PATH = ./the_basics/
+EXE_NAME = print_hello
+SRC_PATH = ~/42_the_final_backup/Other_Projects/exam_prep/the_basics/
+INCLUDES = $(SRC_PATH)
 SOURCES = \
-	$(TEST_Q).c \
+	$(EXE_NAME).c \
 	$(SRC_PATH)ft_putnbr.c \
 	$(SRC_PATH)ft_putstr.c
-WGCC = gcc -c -Wall -Wextra -Werror -o
+O_FILES = \
+	$(EXE_NAME).o \
+	ft_putnbr.o \
+	ft_putstr.o
+HEADER = $(SRC_PATH)
+WGCC = gcc -Wall -Wextra -Werror
 
 all: $(EXE_NAME)
 
-$(EXE_NAME):
-	$(WGCC) $(EXE_NAME) $(SOURCES)
+$(EXE_NAME): $(O_FILES)
+	@$(WGCC) -o $(EXE_NAME) $(O_FILES)
+
+$(O_FILES):
+	@$(WGCC) -c $(SOURCES) -I $(INCLUDES)
+
+fclean: clean
+	@/bin/rm -f $(EXE_NAME)
 
 clean:
-	rm -f $(EXE_NAME)
+	@/bin/rm -f $(O_FILES)
 
-test: clean all
+test: fclean all
 	./$(EXE_NAME)
-	rm -f $(EXE_NAME)
+	@/bin/rm -f $(EXE_NAME)
+	@/bin/rm -f $(O_FILES)
+	make fclean
